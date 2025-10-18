@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>موقع التبرعات - تبرع للأطفال</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THAWAB</title>
   <style>
     :root {
       --green-dark: #c3d8a7;
@@ -19,31 +19,28 @@
       background: var(--green-light);
       color: #333;
       line-height: 1.6;
-      animation: fadeIn 1s ease-in;
+      scroll-behavior: smooth;
     }
 
+    /* رأس الموقع */
     header {
       background: var(--green-dark);
-      color: #333;
-      padding: 20px;
-      text-align: center;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     header h1 {
       margin: 0;
-      font-size: 26px;
-      animation: slideDown 0.8s ease;
-    }
-
-    nav {
-      background: var(--beige);
-      padding: 10px;
-      text-align: center;
+      font-size: 22px;
+      color: #333;
     }
 
     nav a {
-      margin: 0 12px;
       text-decoration: none;
+      margin: 0 10px;
       color: #333;
       font-weight: bold;
       transition: color 0.3s, transform 0.3s;
@@ -51,20 +48,113 @@
 
     nav a:hover {
       color: var(--orange);
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
-    .banner {
-      background: var(--green-dark);
-      padding: 25px;
-      text-align: center;
-      font-size: 18px;
+    .donate-btn {
+      background: var(--orange);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .donate-btn:hover {
+      background: #e78d36;
+      transform: scale(1.05);
+    }
+
+    /* قسم الواجهة */
+    .hero {
+      background: var(--beige);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      flex: 1 1 400px;
+      padding: 20px;
+      text-align: right;
+      max-width: 500px;
+    }
+
+    .hero-content h2 {
       color: #333;
+      font-size: 26px;
+      margin-bottom: 10px;
     }
 
+    .hero-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content .btn {
+      background: var(--orange);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero-content .btn:hover {
+      background: #e78d36;
+      transform: scale(1.05);
+    }
+
+    .hero img {
+      flex: 1 1 400px;
+      max-width: 480px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* قسم من نحن */
+    .about {
+      background: white;
+      margin: 40px auto;
+      max-width: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+      padding: 30px;
+    }
+
+    .about-text h2 {
+      color: var(--green-dark);
+      font-size: 22px;
+      border-right: 5px solid var(--orange);
+      padding-right: 10px;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    .about img {
+      flex: 1 1 400px;
+      max-width: 500px;
+      object-fit: cover;
+    }
+
+    /* قسم الحالات */
     .cases {
       max-width: 1000px;
-      margin: 20px auto;
+      margin: 40px auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
@@ -80,8 +170,6 @@
       flex-direction: column;
       justify-content: space-between;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 0.8s ease forwards;
-      opacity: 0;
     }
 
     .case:hover {
@@ -92,57 +180,41 @@
     .case img {
       width: 100%;
       border-radius: 8px;
-      transition: transform 0.4s ease;
-    }
-
-    .case img:hover {
-      transform: scale(1.05);
+      margin-bottom: 10px;
     }
 
     .case h3 {
-      margin: 10px 0 5px;
       color: var(--green-dark);
+      margin: 5px 0;
     }
 
-    .donate-btn {
-      display: block;
-      margin-top: 10px;
-      padding: 10px;
-      text-align: center;
+    .donate-case-btn {
       background: var(--orange);
       color: white;
-      border: none;
+      padding: 8px;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      transition: background 0.3s, transform 0.3s;
     }
 
-    .donate-btn:hover {
+    .donate-case-btn:hover {
       background: #e78d36;
       transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
+    /* قسم التبرع */
     .donation-section {
       background: var(--beige);
       padding: 20px;
       max-width: 800px;
-      margin: 20px auto;
+      margin: 40px auto;
       border-radius: 12px;
-      animation: fadeIn 1s ease-in;
     }
 
     .donation-section h2 {
-      margin-top: 0;
       color: var(--green-dark);
-    }
-
-    .donation-method {
-      background: white;
-      padding: 12px;
-      margin-bottom: 12px;
-      border-radius: 8px;
+      text-align: center;
     }
 
     form input, form select, form textarea {
@@ -151,13 +223,6 @@
       margin: 6px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
-      transition: border 0.3s, box-shadow 0.3s;
-    }
-
-    form input:focus, form select:focus, form textarea:focus {
-      border-color: var(--orange);
-      box-shadow: 0 0 5px rgba(235, 160, 85, 0.5);
-      outline: none;
     }
 
     form button {
@@ -168,115 +233,111 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
+      width: 100%;
+      transition: background 0.3s;
     }
 
     form button:hover {
       background: #e78d36;
-      transform: scale(1.05);
     }
 
     footer {
-      background: var(--green-dark);
-      color: #333;
       text-align: center;
+      background: var(--green-dark);
       padding: 15px;
-      margin-top: 30px;
-      animation: fadeIn 1s ease-in;
+      margin-top: 40px;
+      color: #333;
+      border-top: 3px solid var(--orange);
     }
 
-    /* ✅ استجابة لجميع الأجهزة */
-    @media (max-width: 600px) {
-      header h1 { font-size: 22px; }
-      .banner { font-size: 16px; padding: 20px; }
-      .case { padding: 12px; }
-    }
-
-    /* ✨ الحركات */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-text {
+        padding: 20px;
+      }
+      .about-text h2 {
+        border: none;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>موقع التبرعات -  تبرع للأطفال</h1>
+    <h1>THAWAB</h1>
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="#cases">الحالات</a>
+      <a href="#donate" class="donate-btn">تبرع الآن</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#cases">الحالات</a>
-    <a href="#donate">تبرع</a>
-    <a href="#contact">اتصل بنا</a>
-  </nav>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>جسر الثقة بين المتبرع والمستشفى</h2>
+      <p>منصة شفافة تربطك مباشرة بحالات الأطفال الخدّج في المستشفيات، لتصل تبرعاتك إلى من يحتاجها فعلاً.</p>
+      <a href="#donate" class="btn">تبرع الآن</a>
+    </div>
+    <img src="https://via.placeholder.com/480x320" alt="صورة أطفال سعداء" />
+  </section>
 
-  <div class="banner">
-    هنا يمكن عرض الإعلانات أو الأخبار الهامة للموقع
-  </div>
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>من نحن</h2>
+      <p>
+ منصة شفافة تربطك مباشرة بحالات الأطفال الخدّج في المستشفيات، لتصل تبرعاتك إلى من يحتاجها فعلاً
+      </p>
+    </div>
+    <img src="https://via.placeholder.com/480x300" alt="صورة العمل الخيري" />
+  </section>
 
   <section id="cases" class="cases">
     <div class="case">
-      <img src="https://via.placeholder.com/300x200" alt="صورة الحالة">
-      <h3>الحالة 1</h3>
-      <p>وصف مختصر عن الحالة وحاجتها للتبرع.</p>
-      <a href="#donate" class="donate-btn">تبرع الآن</a>
+      <img src="https://via.placeholder.com/300x200" alt="حالة 1">
+      <h3>حالة الطفل محمد</h3>
+      <p>يحتاج إلى دعم لتغطية تكلفة الحاضنة والعلاج في قسم العناية المركزة.</p>
+      <a href="#donate" class="donate-case-btn">تبرع الآن</a>
     </div>
-
     <div class="case">
-      <img src="https://via.placeholder.com/300x200" alt="صورة الحالة">
-      <h3>الحالة 2</h3>
-      <p>وصف مختصر عن الحالة وحاجتها للتبرع.</p>
-      <a href="#donate" class="donate-btn">تبرع الآن</a>
+      <img src="https://via.placeholder.com/300x200" alt="حالة 2">
+      <h3>حالة الطفلة ليان</h3>
+      <p>تعاني من ضعف تنفسي وتحتاج أجهزة دعم تنفس </p>
+      <a href="#donate" class="donate-case-btn">تبرع الآن</a>
     </div>
-
     <div class="case">
-      <img src="https://via.placeholder.com/300x200" alt="صورة الحالة">
-      <h3>الحالة 3</h3>
-      <p>وصف مختصر عن الحالة وحاجتها للتبرع.</p>
-      <a href="#donate" class="donate-btn">تبرع الآن</a>
+      <img src="https://via.placeholder.com/300x200" alt="حالة 3">
+      <h3>حالة الطفل آدم</h3>
+      <p>يحتاج علاج  ومتابعة مستمرة لحالته الصحية.</p>
+      <a href="#donate" class="donate-case-btn">تبرع الآن</a>
     </div>
   </section>
 
   <section id="donate" class="donation-section">
     <h2>قسم التبرع</h2>
-      <section class="donation-method">
-  <strong>الدفع المحلي:</strong>
-  <p>أدخل بياناتك البنكية وسيتم التواصل مع البنك لإتمام عملية الخصم.</p>
-  <form id="localPaymentForm">
-    <input type="text" placeholder="اسم صاحب الحساب" required>
-    <input type="text" placeholder="رقم الحساب البنكي" required>
-    <input type="number" placeholder="المبلغ المراد التبرع به" required>
-    <button type="submit">تم الدفع</button>
-  </form>
-</section>
-    <div class="donation-method">
-      <strong>التبرع الدولي:</strong>
-      <p>بنشوف طرق دفع دولية</p>
-    </div>
-
     <form id="donationForm">
       <input type="text" placeholder="اسمك" required>
-      <input type="text" placeholder="المبلغ" required>
+      <input type="number" placeholder="المبلغ" required>
       <select required>
         <option value="local">محلي</option>
+        <option value="international">دولي</option>
       </select>
       <textarea placeholder="ملاحظات أو إثبات التحويل (اختياري)"></textarea>
-      <button type="submit">أرسل إثبات التبرع</button>
+      <button type="submit">إرسال التبرع</button>
     </form>
   </section>
 
   <footer>
-    جميع الحقوق محفوظة &copy; 2025
+    جميع الحقوق محفوظة © 2025
   </footer>
 </body>
 </html>
