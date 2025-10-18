@@ -67,53 +67,56 @@
 
     /* قسم الواجهة */
     .hero {
-      background: var(--beige);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
+  position: relative;
+  background: url("واجهه.jpg") center/cover no-repeat; /* ← غيّر هذا لاسم صورتك */
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 
-    .hero-content {
-      flex: 1 1 400px;
-      padding: 20px;
-      text-align: right;
-      max-width: 500px;
-    }
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.45); /* تظليل خفيف على الصورة لتوضيح النص */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    .hero-content h2 {
-      color: #333;
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
+.hero-content {
+  max-width: 600px;
+  padding: 20px;
+}
 
-    .hero-content p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
+.hero-content h2 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
 
-    .hero-content .btn {
-      background: var(--orange);
-      color: white;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
-    }
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
 
-    .hero-content .btn:hover {
-      background: #e78d36;
-      transform: scale(1.05);
-    }
+.hero-content .btn {
+  background: var(--orange);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
 
-    .hero img {
-      flex: 1 1 400px;
-      max-width: 480px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    }
+.hero-content .btn:hover {
+  background: #e78d36;
+  transform: scale(1.05);
+}
 
     /* قسم من نحن */
     .about {
@@ -178,11 +181,12 @@
     }
 
     .case img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
+  width: 100%;
+  height: 200px; /* ارتفاع ثابت لكل الصور */
+  object-fit: cover; /* يملأ الصورة بدون تشويه */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
     .case h3 {
       color: var(--green-dark);
       margin: 5px 0;
@@ -288,7 +292,7 @@
       <p>منصة شفافة تربطك مباشرة بحالات الأطفال الخدّج في المستشفيات، لتصل تبرعاتك إلى من يحتاجها فعلاً.</p>
       <a href="#donate" class="btn">تبرع الآن</a>
     </div>
-    <img src="https://via.placeholder.com/480x320" alt="صورة أطفال سعداء" />
+    
   </section>
 
   <section class="about" id="about">
@@ -303,19 +307,19 @@
 
   <section id="cases" class="cases">
     <div class="case">
-      <img src="https://via.placeholder.com/300x200" alt="حالة 1">
+      <img src="حاله1.jpg" alt="حالة 1">
       <h3>حالة الطفل محمد</h3>
       <p>يحتاج إلى دعم لتغطية تكلفة الحاضنة والعلاج في قسم العناية المركزة.</p>
       <a href="#donate" class="donate-case-btn">تبرع الآن</a>
     </div>
     <div class="case">
-      <img src="https://via.placeholder.com/300x200" alt="حالة 2">
+      <img src="حاله2.jpg" alt="حالة 2">
       <h3>حالة الطفلة ليان</h3>
       <p>تعاني من ضعف تنفسي وتحتاج أجهزة دعم تنفس </p>
-      <a href="#donate" class="donate-case-btn">تبرع الآن</a>
+      <a href="#donate" class="-case-btn">تبرع الآن</a>
     </div>
     <div class="case">
-      <img src="https://via.placeholder.com/300x200" alt="حالة 3">
+      <img src="حاله3.jpg" alt="حالة 3">
       <h3>حالة الطفل آدم</h3>
       <p>يحتاج علاج  ومتابعة مستمرة لحالته الصحية.</p>
       <a href="#donate" class="donate-case-btn">تبرع الآن</a>
@@ -332,7 +336,7 @@
         <option value="international">دولي</option>
       </select>
       <textarea placeholder="ملاحظات أو إثبات التحويل (اختياري)"></textarea>
-      <button type="submit">إرسال التبرع</button>
+      <button type="submit">إرسال اdonateلتبرع</button>
     </form>
   </section>
 
