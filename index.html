@@ -35,13 +35,13 @@
     header h1 {
       margin: 0;
       font-size: 22px;
-      color: #333;
+      color: white; /* لتوضيح العنوان على الخلفية الغامقة */
     }
 
     nav a {
       text-decoration: none;
       margin: 0 10px;
-      color: #333;
+      color: rgb(190, 181, 181);
       font-weight: bold;
       transition: color 0.3s, transform 0.3s;
     }
@@ -51,72 +51,45 @@
       transform: scale(1.05);
     }
 
-    .donate-btn {
-      background: var(--orange);
-      color: white;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .donate-btn:hover {
-      background: #e78d36;
-      transform: scale(1.05);
-    }
-
     /* قسم الواجهة */
     .hero {
-  position: relative;
-  background: url("واجهه.jpg") center/cover no-repeat; /* ← غيّر هذا لاسم صورتك */
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
+      position: relative;
+      background: url("واجهه.jpg") center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
 
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.45); /* تظليل خفيف على الصورة لتوضيح النص */
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.45); /* تظليل خفيف */
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-.hero-content {
-  max-width: 600px;
-  padding: 20px;
-}
+    .hero-content {
+      max-width: 600px;
+      padding: 20px;
+    }
 
-.hero-content h2 {
-  font-size: 42px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
+    .hero-content h2 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #fff;
+    }
 
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 25px;
-  line-height: 1.8;
-}
-
-.hero-content .btn {
-  background: var(--orange);
-  color: white;
-  padding: 12px 22px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.hero-content .btn:hover {
-  background: #e78d36;
-  transform: scale(1.05);
-}
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 25px;
+      line-height: 1.8;
+      color: #fdfdfd;
+    }
 
     /* قسم من نحن */
     .about {
@@ -150,7 +123,7 @@
 
     .about img {
       flex: 1 1 400px;
-      max-width: 500px;
+      max-width: 100%;
       object-fit: cover;
     }
 
@@ -181,12 +154,13 @@
     }
 
     .case img {
-  width: 100%;
-  height: 200px; /* ارتفاع ثابت لكل الصور */
-  object-fit: cover; /* يملأ الصورة بدون تشويه */
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
     .case h3 {
       color: var(--green-dark);
       margin: 5px 0;
@@ -282,27 +256,24 @@
       <a href="#home">الرئيسية</a>
       <a href="#about">من نحن</a>
       <a href="#cases">الحالات</a>
-      <a href="#donate" class="donate-btn">تبرع الآن</a>
+      <!-- زر التبرع تم حذفه -->
     </nav>
   </header>
 
   <section class="hero" id="home">
-    <div class="hero-content">
-      <h2>جسر الثقة بين المتبرع والمستشفى</h2>
-      <p>منصة شفافة تربطك مباشرة بحالات الأطفال الخدّج في المستشفيات، لتصل تبرعاتك إلى من يحتاجها فعلاً.</p>
-      <a href="#donate" class="btn">تبرع الآن</a>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h2>جسر الثقة بين المتبرع والمستشفى</h2> 
+      </div>
     </div>
-    
   </section>
 
   <section class="about" id="about">
     <div class="about-text">
       <h2>من نحن</h2>
-      <p>
- منصة شفافة تربطك مباشرة بحالات الأطفال الخدّج في المستشفيات، لتصل تبرعاتك إلى من يحتاجها فعلاً
-      </p>
+      <p>منصة شفافة تربطك مباشرة بحالات الأطفال الخدّج في المستشفيات، لتصل تبرعاتك إلى من يحتاجها فعلاً.</p>
     </div>
-    <img src="https://via.placeholder.com/480x300" alt="صورة العمل الخيري" />
+    <img src="تبرع.jpg" alt="صورة العمل الخيري" />
   </section>
 
   <section id="cases" class="cases">
@@ -316,12 +287,12 @@
       <img src="حاله2.jpg" alt="حالة 2">
       <h3>حالة الطفلة ليان</h3>
       <p>تعاني من ضعف تنفسي وتحتاج أجهزة دعم تنفس </p>
-      <a href="#donate" class="-case-btn">تبرع الآن</a>
+      <a href="#donate" class="donate-case-btn">تبرع الآن</a>
     </div>
     <div class="case">
       <img src="حاله3.jpg" alt="حالة 3">
       <h3>حالة الطفل آدم</h3>
-      <p>يحتاج علاج  ومتابعة مستمرة لحالته الصحية.</p>
+      <p>يحتاج علاج ومتابعة مستمرة لحالته الصحية.</p>
       <a href="#donate" class="donate-case-btn">تبرع الآن</a>
     </div>
   </section>
@@ -336,7 +307,7 @@
         <option value="international">دولي</option>
       </select>
       <textarea placeholder="ملاحظات أو إثبات التحويل (اختياري)"></textarea>
-      <button type="submit">إرسال اdonateلتبرع</button>
+      <button type="submit">إرسال التبرع</button>
     </form>
   </section>
 
